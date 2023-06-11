@@ -12,7 +12,6 @@
             <mat-form-field appearance="outline" class="example-full-width" password-toggle>
                 <mat-label>Password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
-                <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <button style="width: 100%;margin-top: 10px;" mat-flat-button color="primary">Login</button>
         </form>
