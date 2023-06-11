@@ -1,0 +1,21 @@
+<div class="center-content">
+    <mat-card class="example-card">
+      <mat-toolbar color="primary">Login</mat-toolbar>
+      <mat-card-content>
+        <form>
+            <mat-form-field appearance="outline" class="example-full-width" style="margin-top: 20px;">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput [formControl]="email">
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="example-full-width" password-toggle>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <button style="width: 100%;margin-top: 10px;" mat-flat-button color="primary">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+</div>
