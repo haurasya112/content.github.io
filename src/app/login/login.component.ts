@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginComponent {
   password = new FormControl('', Validators.required);
 
   getErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.email.touched && this.email.hasError('required')) {
       return 'You must enter a value';
     }
 

@@ -11,6 +11,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
     exports:[
@@ -25,7 +27,9 @@ import {MatIconModule} from '@angular/material/icon';
         MatDialogModule,
         MatToolbarModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatSidenavModule,
+        MatTabsModule
     ]
 })
 export class MaterialModule{}
