@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
     exports:[
@@ -29,7 +30,8 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatButtonModule,
         MatIconModule,
         MatSidenavModule,
-        MatTabsModule
+        MatTabsModule,
+        MatFormFieldModule,
     ]
 })
 export class MaterialModule{}

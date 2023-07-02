@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgIf, NgFor} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     NgIf,
+    NgFor,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
