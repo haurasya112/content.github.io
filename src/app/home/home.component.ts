@@ -37,6 +37,12 @@ export class HomeComponent {
     return true;
   }
 
+  resetInputs(index:number) {
+    this.tabs[index].userInput = '';
+    this.generateDisabled[index] = false;
+    this.showCard[index]=false;
+  }
+
   addTab(selectAfterAdding: boolean) {
     this.tabs.push({title: 'New', userInput: ''});
     this.generateDisabled.push(false);

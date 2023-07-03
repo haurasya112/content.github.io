@@ -102,6 +102,10 @@
 							[disabled]="generateDisabled[index]">
 							Generate
 						</button>
+						<button mat-flat-button color="warn" class="mt-1 ml-3" (click)="resetInputs(index)"
+							>
+							Reset
+						</button>
 					</div>
 					<!-- <div class="line"></div> -->
 					<div class="mt-5 flex bg-white rounded-lg shadow-md" [class.hidden]="!showCard[index]"
