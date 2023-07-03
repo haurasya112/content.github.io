@@ -1,7 +1,7 @@
 <div class="flex flex-row">
 	<div class="sidebar flex-col items-center flex-shrink-0 antialiased text-gray-700 bg-gray-100 rounded">
 		<div class="flex items-center justify-center h-14 border-b">
-			<div>Content Generator</div>
+			<div class="font-medium">Content Generator</div>
 		</div>
 		<div class="flex flex-col items-center w-full">
 			<ul class="flex flex-col py-4 space-y-1">
@@ -172,10 +172,10 @@
 							<button mat-flat-button color="primary" (click)="openModal()" [hidden]="modalOpen">
 								Generate Pictures
 							</button>
-							<app-modal [isOpen]="modalOpen" (closeModalEvent)="modalOpen = false"></app-modal>
 						</div>
 					</div>
 				</div>
+				<app-modal [isOpen]="modalOpen" (closeModalEvent)="modalOpen = false"></app-modal>
 			</mat-tab>
 		</mat-tab-group>
 		<div class="example-content">
