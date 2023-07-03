@@ -100,7 +100,7 @@
 							class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none placeholder-gray-400"
 							placeholder="Write your thoughts here..." required>
 						<button mat-flat-button color="primary" class="mt-1 ml-3" (click)="generateClicked(index)"
-							*ngIf="!generateDisabled[index]">
+							[disabled]="generateDisabled[index]">
 							Generate
 						</button>
 						<button mat-flat-button color="warn" class="mt-1 ml-3" (click)="resetInputs(index)">
@@ -178,5 +178,10 @@
 				</div>
 			</mat-tab>
 		</mat-tab-group>
+		<div class="example-content">
+			<button *ngIf="showScrollButton" class="scroll-button" mat-mini-fab color="primary" aria-label="Scroll to top" (click)="scrollToTop()">
+				<mat-icon>keyboard_arrow_up</mat-icon>
+			</button>
+		</div>
 	</div>
 </div>

@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +16,25 @@ export class HomeComponent {
   generateDisabled = [false,false];
   showCard = [false, false];
   modalOpen = false;
+  showScrollButton = false;
 
   openModal() {
     this.modalOpen = true;
   }
 
-  generateClicked(index: number) {
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showScrollButton = window.scrollY > 350; 
+  }
 
+  scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+  }
+
+  generateClicked(index: number) {
     if (!this.isValidInput(index)) {
       alert('Please enter a valid input!');
       return;
