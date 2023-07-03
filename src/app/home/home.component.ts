@@ -17,11 +17,24 @@ export class HomeComponent {
   showCard = [false, false];
 
   generateClicked(index: number) {
+
+    if (!this.isValidInput(index)) {
+      alert('Please enter a valid input!');
+      return;
+    }
+
     this.generateDisabled[index] = true;
     this.showCard[index] = true;
     this.tabs[index].title = this.tabs[index].userInput
+    // console.log(`Generated content for Tab ${this.tabs}:`);
+  }
 
-    console.log(`Generated content for Tab ${this.tabs}:`);
+  isValidInput(index:number): boolean {
+    if (this.tabs[index].userInput === '' || this.tabs[index].userInput.trim() === '') {
+      return false;
+    }
+
+    return true;
   }
 
   addTab(selectAfterAdding: boolean) {
