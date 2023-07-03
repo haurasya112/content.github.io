@@ -1,0 +1,18 @@
+<div class="modal-container" *ngIf="isOpen">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+        <h3 class="modal-title">Select Picture</h3>
+        <span class="modal-divider"></span>
+        <p class="modal-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's
+            standard dummy text ever since
+        </p>
+        <div class="modal-image">
+        </div>
+        <div class="modal-actions">
+            <button class="modal-action-button cancel" (click)="closeModal()">Cancel</button>
+            <button class="modal-action-button save">Save</button>
+        </div>
+    </div>
+</div>

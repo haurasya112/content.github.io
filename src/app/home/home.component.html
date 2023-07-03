@@ -1,5 +1,5 @@
-<div class="flex flex-row h-screen">
-	<div class="flex-col items-center flex-auto flex-shrink-0 antialiased text-gray-700 bg-gray-100 rounded">
+<div class="flex flex-row">
+	<div class="sidebar flex-col items-center flex-shrink-0 antialiased text-gray-700 bg-gray-100 rounded">
 		<div class="flex items-center justify-center h-14 border-b">
 			<div>Content Generator</div>
 		</div>
@@ -75,7 +75,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="flex flex-col w-full p-8">
+	<div class="content flex flex-col w-full p-8">
 		<div class="mb-4">
 			<button mat-raised-button class="example-add-tab-button" (click)="addTab(selectAfterAdding)"
 				[disabled]="tabs.length >= 2">
@@ -83,7 +83,8 @@
 			</button>
 		</div>
 
-		<mat-tab-group [backgroundColor]="'primary'" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+		<mat-tab-group [backgroundColor]="'primary'" [selectedIndex]="selected.value"
+			(selectedIndexChange)="selected.setValue($event)">
 			<mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.title">
 				<div class="m-3">
 					<button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1"
@@ -99,11 +100,10 @@
 							class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none placeholder-gray-400"
 							placeholder="Write your thoughts here..." required>
 						<button mat-flat-button color="primary" class="mt-1 ml-3" (click)="generateClicked(index)"
-							[disabled]="generateDisabled[index]">
+							*ngIf="!generateDisabled[index]">
 							Generate
 						</button>
-						<button mat-flat-button color="warn" class="mt-1 ml-3" (click)="resetInputs(index)"
-							>
+						<button mat-flat-button color="warn" class="mt-1 ml-3" (click)="resetInputs(index)">
 							Reset
 						</button>
 					</div>
@@ -113,16 +113,66 @@
 						<div class="w-2/3 p-4 border-r border-gray-300">
 							<a class="text-2xl text-gray-700 font-bold hover:text-gray-600"
 								style="margin-bottom: 0.5rem;">Resep Ayam Goreng</a>
-							<p class="mt-4 text-gray-600" style="margin-top: 1rem;">Lorem ipsum dolor sit, amet
-								consectetur adipisicing elit. Tempora expedita dicta totam aspernatur doloremque.
-								Excepturi iste iusto eos enim reprehenderit nisi, accusamus delectus nihil quis
-								facere
-								in modi ratione libero!</p>
+							<p class="mt-4 text-gray-600" style="margin-top: 1rem;">
+								<strong>Judul:</strong> Ayam Goreng Lengkuas: Paduan Kelezatan yang Memukau<br>
+								<br>
+								<strong>Pengantar:</strong><br>
+								Siapa yang bisa menolak kelezatan ayam goreng yang renyah di luar, tetapi tetap lembut
+								dan juicy di dalamnya? Ditambah lagi, jika disertai dengan sentuhan eksotis rempah
+								lengkuas, hidangan ini akan menjadi sajian yang tak terlupakan. Dalam artikel ini, kita
+								akan mengungkap resep rahasia ayam goreng lengkuas yang membuat lidah bergoyang dan hati
+								senang. Siapkan diri Anda untuk menjelajahi dunia rasa yang menggoda!<br>
+								<br>
+								I. Bahan-bahan yang Diperlukan:<br>
+								Sebelum memasak, pastikan untuk menyiapkan bahan-bahan berikut:<br>
+								500 gram ayam, potong menjadi bagian yang lebih kecil<br>
+								3 batang serai, memarkan bagian putihnya<br>
+								4 lembar daun jeruk, sobek-sobek<br>
+								2 ruas lengkuas, memarkan dan iris tipis<br>
+								4 siung bawang putih, cincang halus<br>
+								2 sendok teh garam<br>
+								1 sendok teh gula<br>
+								1 sendok teh merica bubuk<br>
+								Minyak goreng secukupnya untuk menggoreng<br>
+								<br>
+								II. Langkah-langkah Memasak:<br>
+								Berikut adalah langkah-langkah untuk menciptakan ayam goreng lengkuas yang sempurna:<br>
+								Langkah 1: Marinasi<br>
+								Campurkan ayam potong dengan bawang putih cincang, serai, daun jeruk, lengkuas, garam,
+								gula, dan merica bubuk dalam sebuah wadah.<br>
+								Aduk rata dan biarkan marinate selama minimal 30 menit agar rempah meresap dengan
+								baik.<br>
+								Langkah 2: Penggorengan<br>
+								Panaskan minyak dalam wajan dengan api sedang-tinggi.<br>
+								Tambahkan ayam yang telah dimarinasi ke dalam wajan dengan hati-hati. Pastikan tidak
+								menumpuk ayam agar dapat matang dengan merata.<br>
+								Goreng ayam hingga berwarna kecokelatan dan renyah di luar serta matang sempurna di
+								dalam. Proses ini biasanya memakan waktu sekitar 10-15 menit.<br>
+								Angkat ayam dan tiriskan minyak berlebih dengan menggunakan kertas dapur.<br>
+								Langkah 3: Sajian<br>
+								Ayam goreng lengkuas siap disajikan! Hidangkan dengan nasi hangat, sambal favorit, dan
+								irisan mentimun segar untuk memberikan sentuhan kesegaran yang menyegarkan.<br>
+								<br>
+								III. Nikmati Kelezatan Ayam Goreng Lengkuas Anda!<br>
+								Ayam goreng lengkuas yang lezat ini dapat dinikmati sebagai hidangan utama dalam acara
+								keluarga, makan siang bersama teman-teman, atau bahkan sebagai hidangan spesial untuk
+								perayaan tertentu. Nikmati kelezatan ayam yang renyah dengan balutan aroma lengkuas yang
+								khas, dan rasakan sentuhan rempah yang memikat hati Anda.<br>
+								<br>
+								<strong>Penutup:</strong><br>
+								Dengan resep ayam goreng lengkuas ini, Anda dapat menciptakan hidangan yang tidak hanya
+								menggugah selera tetapi juga memberikan pengalaman kuliner yang tak terlupakan.
+								Kombinasi sempurna antara rasa ayam yang juicy dengan keharuman lengkuas yang eksotis
+								akan memanjakan lidah dan memuaskan hasrat kuliner Anda. Jadi, siapkan rempah-rempah
+								Anda dan mulailah petualangan memasak dengan ayam goreng lengkuas yang menggoda ini.
+								Selamat mencoba dan selamat menikmati!
+							</p>
 						</div>
 						<div class="w-1/3 p-4">
-							<button mat-flat-button color="primary">
+							<button mat-flat-button color="primary" (click)="openModal()" [hidden]="modalOpen">
 								Generate Pictures
 							</button>
+							<app-modal [isOpen]="modalOpen" (closeModalEvent)="modalOpen = false"></app-modal>
 						</div>
 					</div>
 				</div>

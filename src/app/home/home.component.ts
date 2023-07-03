@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,11 @@ export class HomeComponent {
   selectAfterAdding = true;
   generateDisabled = [false,false];
   showCard = [false, false];
+  modalOpen = false;
+
+  openModal() {
+    this.modalOpen = true;
+  }
 
   generateClicked(index: number) {
 
