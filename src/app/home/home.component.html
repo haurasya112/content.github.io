@@ -83,7 +83,7 @@
 			</button>
 		</div>
 
-		<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+		<mat-tab-group [backgroundColor]="'primary'" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
 			<mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.title">
 				<div class="m-3">
 					<button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1"
