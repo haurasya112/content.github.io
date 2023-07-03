@@ -10,8 +10,8 @@ export class HomeComponent {
   tabs = ['Tab 1', 'Tab 2'];
   selected = new FormControl(0);
   selectAfterAdding = true;
-  generateDisabled: boolean[] = [false,false];
-  showCard: boolean[] = [false, false];
+  generateDisabled = [false,false];
+  showCard = [false, false];
 
   generateClicked(index: number) {
     this.generateDisabled[index] = true;
