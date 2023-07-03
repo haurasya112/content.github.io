@@ -7,7 +7,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  tabs = ['Tab 1', 'Tab 2'];
+  tabs = [
+    { title: 'Tab 1', userInput: '' },
+    { title: 'Tab 2', userInput: '' }
+  ];
   selected = new FormControl(0);
   selectAfterAdding = true;
   generateDisabled = [false,false];
@@ -16,10 +19,13 @@ export class HomeComponent {
   generateClicked(index: number) {
     this.generateDisabled[index] = true;
     this.showCard[index] = true;
+    this.tabs[index].title = this.tabs[index].userInput
+
+    console.log(`Generated content for Tab ${this.tabs}:`);
   }
 
   addTab(selectAfterAdding: boolean) {
-    this.tabs.push('New');
+    this.tabs.push({title: 'New', userInput: ''});
     this.generateDisabled.push(false);
     this.showCard.push(false);
 

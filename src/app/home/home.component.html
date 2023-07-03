@@ -165,7 +165,7 @@
 		</div>
 
 		<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
-			<mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+			<mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.title">
 				<div class="m-3">
 					<button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1"
 						(click)="removeTab(index)">
@@ -176,7 +176,7 @@
 					<label for="message" class="block mb-2 text-sm font-medium text-gray-900">Title or
 						Keywords</label>
 					<div class="flex">
-						<input id="message" type="text"
+						<input [(ngModel)]="tab.userInput" id="message" type="text"
 							class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none placeholder-gray-400"
 							placeholder="Write your thoughts here..." required>
 						<button mat-flat-button color="primary" class="mt-1 ml-3" (click)="generateClicked(index)"
