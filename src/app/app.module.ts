@@ -11,13 +11,15 @@ import { MaterialModule } from 'src/material.module';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ModalComponent } from './modal/modal.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
+    SidebarComponent
   ],
   imports: [
     NgIf,

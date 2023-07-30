@@ -1,21 +1,37 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', Validators.required);
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
 
-  getErrorMessage() {
-    if (this.email.touched && this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  constructor(private authService: AuthService) {}
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  ngOnInit(): void {
+    this.loginForm = this.createFormGroup();
   }
+
+
+  createFormGroup(): FormGroup {
+    return new FormGroup({
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [
+        Validators.required,
+        Validators.minLength(7),
+      ]),
+    });
+  }
+
+  login(): void {
+    this.authService
+      .login(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe();
+  // console.log(12344444444444444444444);  
+}
+
 }
