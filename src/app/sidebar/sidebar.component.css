@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-:root {
-    --poppins: 'Poppins', sans-serif;
-    --lato: 'Lato', sans-serif;
-    --light: #F9F9F9;
-    --blue: #3C91E6;
-    --light-blue: #CFE8FF;
-    --grey: #eee;
-    --dark-grey: #AAAAAA;
-    --dark: #342E37;
-    --red: #DB504A;
-    --yellow: #FFCE26;
-    --light-yellow: #FFF2C6;
-    --orange: #FD7238;
-    --light-orange: #FFE0D3;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -552,36 +536,6 @@ body {
     margin-bottom: 0;
 }
 
-.mat-tab-group {
-    margin-bottom: 48px;
-}
-
-.tab-header {
-    display: flex;
-    align-items: center;
-}
-
-.tab-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.tab-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 8px;
-    border-radius: 4px;
-    background-color: #e0e0e0;
-    cursor: pointer;
-}
-
-.tab-item.active {
-    background-color: #2196f3;
-    color: white;
-}
-
 .delete-button,
 .add-button {
     display: flex;
@@ -646,53 +600,5 @@ body {
 
     #content nav .nav-link {
         display: none;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    #content nav form .form-input input {
-        display: none;
-    }
-
-    #content nav form .form-input button {
-        width: auto;
-        height: auto;
-        background: transparent;
-        border-radius: none;
-        color: #342E37;
-    }
-
-    #content nav form.show .form-input input {
-        display: block;
-        width: 100%;
-    }
-
-    #content nav form.show .form-input button {
-        width: 36px;
-        height: 100%;
-        border-radius: 0 36px 36px 0;
-        color: #F9F9F9;
-        background: #DB504A;
-    }
-
-    #content nav form.show~.notification,
-    #content nav form.show~.profile {
-        display: none;
-    }
-
-    #content main .box-info {
-        grid-template-columns: 1fr;
-    }
-
-    #content main .table-data .head {
-        min-width: 420px;
-    }
-
-    #content main .table-data .order table {
-        min-width: 420px;
-    }
-
-    #content main .table-data .todo .todo-list {
-        min-width: 420px;
     }
 }
