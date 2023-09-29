@@ -2,6 +2,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
+import { SidebarService } from './sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SidebarComponent {
   isAuthenticated = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(public sidebarService: SidebarService, public dialog: MatDialog, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
@@ -24,7 +27,7 @@ export class SidebarComponent {
     this.authService.isUserLoggedIn$.next(false);
     this.router.navigate(['login']);
   }
-  
+
   status = false;
   tabs = [
     { title: 'Tab 1', userInput: '' },
@@ -43,7 +46,11 @@ export class SidebarComponent {
   }
 
   openModal() {
-    this.modalOpen = true;
+    const dialogRef = this.dialog.open(ModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   @HostListener('window:scroll', [])

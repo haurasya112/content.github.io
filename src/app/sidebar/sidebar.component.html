@@ -1,7 +1,7 @@
 <!-- SIDEBAR -->
-<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+<section id="sidebar" [ngClass]="status ? 'hide' : ''" [class.hide]="!sidebarService.isOpen">
 	<a href="#" class="brand">
-		<i class="bx bxs-smile"></i>
+		<i class="bx"></i>
 		<span class="text">Content App</span>
 	</a>
 	<ul class="side-menu top">
@@ -24,6 +24,10 @@
 			</a>
 		</li>
 	</ul>
+	<div class="copyright">
+        <i class='bx bx-copyright'></i>
+        <span>2023 ProPS. All rights reserved.</span>
+    </div>
 </section>
 <!-- SIDEBAR -->
 <!-- CONTENT -->
@@ -182,13 +186,12 @@
 							</p>
 						</div>
 						<div class="w-1/3" style="margin-left: 8px;">
-							<button mat-flat-button color="primary" (click)="openModal()" [hidden]="modalOpen">
+							<button mat-flat-button color="primary" (click)="openModal()">
 								Generate Pictures
 							</button>
 						</div>
 					</div>
 				</div>
-				<app-modal [isOpen]="modalOpen" (closeModalEvent)="modalOpen = false"></app-modal>
 			</mat-tab>
 		</mat-tab-group>
 	</main>

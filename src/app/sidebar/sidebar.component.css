@@ -54,7 +54,6 @@ body {
     height: 100%;
     background: #F9F9F9;
     z-index: 2000;
-    font-family: var(--lato);
     transition: .3s ease;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -88,6 +87,19 @@ body {
     min-width: 60px;
     display: flex;
     justify-content: center;
+}
+
+#sidebar .copyright {
+    padding: 20px;
+    color: #999;
+    font-size: 12px;
+    background: #F9F9F9;
+    position: absolute; 
+    bottom: 0;
+}
+
+#sidebar.hide .copyright {
+    display: none;
 }
 
 #sidebar .side-menu {
