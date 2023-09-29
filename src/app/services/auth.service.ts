@@ -12,7 +12,7 @@ import { ErrorHandlerService } from './error-handler.service';
   providedIn: 'root',
 })
 export class AuthService {
-  private url = 'http://172.104.61.65:8888/auth';
+  private url = 'https://content.props.id/auth';
 
   isUserLoggedIn$ = new BehaviorSubject<boolean>(!!localStorage.getItem('token'));
   userId!: Pick<User, 'id'>;
