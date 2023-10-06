@@ -1,0 +1,18 @@
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align the images horizontally */
+    align-items: center; /* Center align the images vertically */
+    text-align: center; /* Center align the text in case it's not centered by default */
+  }
+  
+  .image-wrapper {
+    cursor: pointer;
+    margin: 8px;
+    border: 2px solid transparent; /* Default border */
+  }
+  
+  .selected {
+    border-color: #3C91E6; /* Border color for selected images */
+  }
+  

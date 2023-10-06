@@ -3,14 +3,13 @@
   <div class="image-gallery">
     <!-- Create 15 selectable images -->
     <ng-container *ngFor="let image of imageList; let i = index">
-      <label class="image-checkbox">
-        <input type="checkbox" [(ngModel)]="selectedImages[i]" [value]="image" />
-        <img [src]="image" alt="Image {{ i + 1 }}" />
-      </label>
+      <div class="image-wrapper" (click)="toggleImageSelection(image)">
+        <img [src]="image.image" alt="Image {{ i + 1 }}" [ngClass]="{'selected': image.isSelected}" />
+      </div>
     </ng-container>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button (click)="closeModal()">Cancel</button>
-    <button mat-button (click)="closeModal()">Save</button>
+    <button mat-button (click)="saveImages()">Save</button>
 </mat-dialog-actions>

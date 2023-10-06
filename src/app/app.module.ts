@@ -12,6 +12,11 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ModalComponent } from './modal/modal.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HistoryComponent } from './history/history.component';
+import { ReportComponent } from './report/report.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChartComponent } from './chart/chart.component';
+import { ChartUsageComponent } from './chart-usage/chart-usage.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     LoginComponent,
     HomeComponent,
     ModalComponent,
-    SidebarComponent
+    SidebarComponent,
+    HistoryComponent,
+    ReportComponent,
+    ChartComponent,
+    ChartUsageComponent,
   ],
   imports: [
     NgIf,
@@ -31,6 +40,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgApexchartsModule,
     ToastrModule.forRoot()
    ],
   providers: [],

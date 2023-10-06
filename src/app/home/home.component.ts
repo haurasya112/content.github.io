@@ -1,5 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +11,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  isAuthenticated = false;
+
+  constructor(public dialog: MatDialog, private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
+      this.isAuthenticated = isLoggedIn;
+    });
+  }
+
   tabs = [
     { title: 'Tab 1', userInput: '' },
     { title: 'Tab 2', userInput: '' }
@@ -17,9 +31,19 @@ export class HomeComponent {
   showCard = [false, false];
   modalOpen = false;
   showScrollButton = false;
+  status = false;
+  isProfileDropdownOpen = false;
+
+  toggleProfileDropdown() {
+    this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+  }
 
   openModal() {
-    this.modalOpen = true;
+    const dialogRef = this.dialog.open(ModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   @HostListener('window:scroll', [])
@@ -78,5 +102,15 @@ export class HomeComponent {
     if (this.selected.value !== null && this.selected.value > index) {
       this.selected.setValue(this.selected.value - 1);
     }
+  }
+
+  addToggle() {
+    this.status = !this.status;
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.authService.isUserLoggedIn$.next(false);
+    this.router.navigate(['login']);
   }
 }

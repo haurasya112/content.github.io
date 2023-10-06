@@ -4,27 +4,45 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { SidebarService } from './sidebar.service';
-import { PicturesService } from '../services/pictures.service';
+import { SidebarService } from '../sidebar/sidebar.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  selector: 'app-report',
+  templateUrl: './report.component.html',
+  styleUrls: ['./report.component.css']
 })
-export class SidebarComponent {
+export class ReportComponent {
   isAuthenticated = false;
-  selectedImagesUrls:string[] = [];
 
-  constructor(public sidebarService: SidebarService, public dialog: MatDialog, private authService: AuthService, private router: Router, private sharedService: PicturesService) {
-    this.selectedImagesUrls = this.sharedService.getSelectedImages();
-  }
+  constructor(
+    public sidebarService: SidebarService,
+    public dialog: MatDialog,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
       this.isAuthenticated = isLoggedIn;
     });
   }
+
+  selectedValue: string = "";
+
+  months = [
+    {value: '0', viewValue: 'Januari'},
+    {value: '1', viewValue: 'Februari'},
+    {value: '2', viewValue: 'Maret'},
+    {value: '3', viewValue: 'April'},
+    {value: '4', viewValue: 'Mei'},
+    {value: '5', viewValue: 'Juni'},
+    {value: '6', viewValue: 'Juli'},
+    {value: '7', viewValue: 'Agustus'},
+    {value: '8', viewValue: 'September'},
+    {value: '9', viewValue: 'Oktober'},
+    {value: '10', viewValue: 'November'},
+    {value: '11', viewValue: 'Desember'}
+  ];
 
   logout(): void {
     localStorage.removeItem('token');
@@ -52,7 +70,7 @@ export class SidebarComponent {
   openModal() {
     const dialogRef = this.dialog.open(ModalComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
   }
