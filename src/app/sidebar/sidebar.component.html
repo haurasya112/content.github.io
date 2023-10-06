@@ -96,7 +96,7 @@
 			<mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.title">
 				<div style="margin-top: 15px;">
 					<button mat-raised-button class="example-add-tab-button" (click)="addTab(selectAfterAdding)"
-						[disabled]="tabs.length >= 2" style="margin-right: 10px;margin-left: 4px;">
+						[disabled]="tabs.length >= 5" style="margin-right: 10px;margin-left: 4px;">
 						Add tab
 					</button>
 					<button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1"

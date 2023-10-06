@@ -35,7 +35,6 @@ export class SidebarComponent {
   status = false;
   tabs = [
     { title: 'Tab 1', userInput: '' },
-    { title: 'Tab 2', userInput: '' },
   ];
   selected = new FormControl(0);
   selectAfterAdding = true;
